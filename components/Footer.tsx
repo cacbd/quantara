@@ -61,11 +61,11 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <h3 className="text-lg font-bold mb-6 text-white">
-              Quantara Security
+              Quantara Security Group Ltd
             </h3>
             <p className="text-neutral-400 mb-6 leading-relaxed">
               Professional security services protecting people, businesses, and
-              properties across London and surrounding areas.
+              properties across London, Essex, Hertfordshire, Kent, Surrey and surrounding areas.
             </p>
             <div className="flex gap-4">
               <a
@@ -185,13 +185,13 @@ export default function Footer() {
                   className="text-[#d4af37] flex-shrink-0 mt-1"
                 />
                 <div>
-                  <p className="text-neutral-400">020 3718 1599</p>
-                  <p className="text-neutral-400">07762 308545</p>
+                  <a href="tel:02037181599" className="text-neutral-400 hover:text-[#d4af37] transition-colors block">020 3718 1599</a>
+                  <a href="tel:07762308545" className="text-neutral-400 hover:text-[#d4af37] transition-colors block">07762 308545</a>
                 </div>
               </li>
               <li className="flex gap-3">
                 <Mail size={18} className="text-[#d4af37] flex-shrink-0 mt-1" />
-                <p className="text-neutral-400">info@quantarasecurity.co.uk</p>
+                <a href="mailto:info@quantarasecurity.co.uk" className="text-neutral-400 hover:text-[#d4af37] transition-colors break-all">info@quantarasecurity.co.uk</a>
               </li>
               <li className="flex gap-3">
                 <MapPin
@@ -199,7 +199,7 @@ export default function Footer() {
                   className="text-[#d4af37] flex-shrink-0 mt-1"
                 />
                 <p className="text-neutral-400">
-                  128 City Road, London, EC1V 2NX
+                  128 City Road, London, EC1V 2NX, United Kingdom
                 </p>
               </li>
             </ul>
@@ -208,26 +208,15 @@ export default function Footer() {
 
         {/* Divider */}
         <div className="border-t border-neutral-800 pt-8 mb-8">
-          {/* Legal Links */}
           <div className="flex flex-wrap gap-6 justify-center mb-8">
-            <Link
-              href="/privacy"
-              className="text-sm text-neutral-400 hover:text-[#d4af37] transition-colors"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms"
-              className="text-sm text-neutral-400 hover:text-[#d4af37] transition-colors"
-            >
-              Terms & Conditions
-            </Link>
-            <Link
-              href="/cookies"
-              className="text-sm text-neutral-400 hover:text-[#d4af37] transition-colors"
-            >
-              Cookie Policy
-            </Link>
+            <Link href="/privacy" className="text-sm text-neutral-400 hover:text-[#d4af37] transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="text-sm text-neutral-400 hover:text-[#d4af37] transition-colors">Terms & Conditions</Link>
+            <Link href="/cookies" className="text-sm text-neutral-400 hover:text-[#d4af37] transition-colors">Cookie Policy</Link>
+            <Link href="/services" className="text-sm text-neutral-400 hover:text-[#d4af37] transition-colors">Services</Link>
+            <Link href="/contact" className="text-sm text-neutral-400 hover:text-[#d4af37] transition-colors">Contact</Link>
+            <span className="text-sm text-neutral-400">Company Reg No. [Available Soon]</span>
+            <span className="text-sm text-neutral-400">ICO No. [Available Soon]</span>
+            <span className="text-sm text-neutral-400">Insurance Details [Available Soon]</span>
           </div>
 
           {/* Copyright */}
@@ -239,15 +228,21 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* SIA License Info */}
+        {/* Trust Badges & SIA License Info */}
         <div className="text-center text-xs text-neutral-600 border-t border-neutral-800 pt-6">
+          <div className="flex flex-wrap justify-center gap-4 mb-4 text-[#d4af37] font-semibold text-sm">
+            <span>✓ SIA Licensed Officers</span>
+            <span>✓ Fully Insured</span>
+            <span>✓ 24/7 Support</span>
+            <span>✓ Rapid Response</span>
+            <span>✓ Professional Uniformed Staff</span>
+            <span>✓ DBS Checked Staff</span>
+          </div>
           <p>
-            Quantara Security Group Ltd is committed to professional security
-            services.
+            Quantara Security Group Ltd is committed to professional security services.
           </p>
           <p>
-            All staff are SIA Licensed Security Officers | Fully Insured | 24/7
-            Support
+            All staff are SIA Licensed Security Officers.
           </p>
         </div>
       </div>

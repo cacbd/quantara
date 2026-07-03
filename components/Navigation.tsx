@@ -23,14 +23,14 @@ export default function Navigation() {
   }
 
   return (
-    <nav className="fixed top-0 w-full bg-black/95 backdrop-blur-md z-50 border-b border-neutral-800">
+    <nav className="sticky top-0 w-full bg-black/95 backdrop-blur-md z-50 border-b border-neutral-800">
       <div className="container-max flex items-center justify-between h-20">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 flex-shrink-0">
           <img 
             src="/logo.jpeg"
             alt="Quantara Security"
-            className="h-10"
+            className="h-14 md:h-16 rounded"
           />
           <span className="hidden sm:inline font-bold text-sm md:text-base">Quantara Security</span>
         </Link>
