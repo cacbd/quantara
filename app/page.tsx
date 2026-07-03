@@ -77,7 +77,7 @@ export default function Page() {
             </p>
           </div>
           <div className="flex justify-center items-center w-full px-4">
-            <Image src="/services.jpeg" alt="Our Services List" width={1200} height={200} className="w-full max-w-5xl h-auto rounded" />
+            <Image src="/services.jpeg" alt="Our Services List" width={1920} height={1080} className="w-full max-w-7xl h-auto rounded object-contain" />
           </div>
         </div>
       </section>
