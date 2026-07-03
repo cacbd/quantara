@@ -46,9 +46,8 @@ export default function Page() {
                 </Link>
                 <Link href="/about" className="btn-secondary block text-center">Learn More</Link>
               </div>
-              <div className="flex gap-6 pt-4 items-center">
-                <Image src="/sia-approved.jpeg" alt="SIA Approved" width={100} height={100} className="rounded" />
-                <Image src="/why-trust-us.jpeg" alt="Why Trust Us" width={100} height={100} className="rounded" />
+              <div className="flex pt-4 items-center">
+                <Image src="/why-trust-us-logos.jpeg" alt="Trust Credentials" width={600} height={100} className="h-12 md:h-16 w-auto object-contain rounded" />
               </div>
             </div>
             <div className="relative h-96 md:h-full">
@@ -77,35 +76,8 @@ export default function Page() {
               residential properties across London and the surrounding areas.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                icon: "👤",
-                label: "Manned Guarding",
-                desc: "Professional security personnel",
-              },
-              {
-                icon: "🚗",
-                label: "Mobile Patrols",
-                desc: "24/7 rapid response coverage",
-              },
-              {
-                icon: "📹",
-                label: "CCTV Monitoring",
-                desc: "Real-time surveillance",
-              },
-              {
-                icon: "🔑",
-                label: "Key Holding",
-                desc: "Emergency alarm response",
-              },
-            ].map((service, idx) => (
-              <div key={idx} className="service-card">
-                <div className="text-3xl mb-3">{service.icon}</div>
-                <h3 className="font-bold mb-2">{service.label}</h3>
-                <p className="text-sm text-neutral-400">{service.desc}</p>
-              </div>
-            ))}
+          <div className="flex justify-center items-center w-full px-4">
+            <Image src="/services.jpeg" alt="Our Services List" width={1200} height={200} className="w-full max-w-5xl h-auto rounded" />
           </div>
         </div>
       </section>
