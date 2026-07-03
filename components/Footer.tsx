@@ -214,9 +214,6 @@ export default function Footer() {
             <Link href="/cookies" className="text-sm text-neutral-400 hover:text-[#d4af37] transition-colors">Cookie Policy</Link>
             <Link href="/services" className="text-sm text-neutral-400 hover:text-[#d4af37] transition-colors">Services</Link>
             <Link href="/contact" className="text-sm text-neutral-400 hover:text-[#d4af37] transition-colors">Contact</Link>
-            <span className="text-sm text-neutral-400">Company Reg No. [Available Soon]</span>
-            <span className="text-sm text-neutral-400">ICO No. [Available Soon]</span>
-            <span className="text-sm text-neutral-400">Insurance Details [Available Soon]</span>
           </div>
 
           {/* Copyright */}
