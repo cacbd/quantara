@@ -5,11 +5,11 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Security Services | Quantara Security",
+  title: "Professional Security Services London & Essex | Quantara Security Group Ltd",
   description:
-    "Comprehensive security services including manned guarding, mobile patrols, CCTV monitoring, key holding, and alarm response for businesses across London & Essex.",
+    "Comprehensive security services including manned guarding, mobile patrols, CCTV monitoring, key holding, and alarm response for businesses across London, Essex & surrounding areas.",
   keywords:
-    "security services, manned guarding, mobile patrols, CCTV monitoring, key holding, alarm response",
+    "security services, manned guarding london, mobile patrols essex, CCTV monitoring, key holding, alarm response",
 };
 
 const services = [
@@ -193,7 +193,7 @@ export default function ServicesPage() {
                     src={service.image}
                     alt={service.title}
                     fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover hover:scale-105 transition-transform duration-500"
+                    className="object-contain hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <h2 className="text-2xl font-bold mb-3 gold-accent">
