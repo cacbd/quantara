@@ -2,15 +2,17 @@
 
 import { Mail, MapPin, Phone, Clock } from 'lucide-react'
 import { useState } from 'react'
-import { sendToTelegram } from '@/app/actions/telegram'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
+    companyName: '',
     phone: '',
-    subject: '',
+    email: '',
+    serviceRequired: '',
+    location: '',
     message: '',
+    preferredContact: 'Email',
   })
   const [isLoading, setIsLoading] = useState(false)
   const [formMessage, setFormMessage] = useState('')
@@ -21,12 +23,26 @@ export default function ContactPage() {
     setFormMessage('')
 
     try {
-      const result = await sendToTelegram(formData)
-      if (result.success) {
-        setFormMessage('Thank you for your message. We will contact you soon!')
-        setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
+      const response = await fetch('https://formsubmit.co/ajax/info@quantarasecurity.co.uk', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `New Enquiry from ${formData.name} - ${formData.serviceRequired}`,
+          ...formData
+        })
+      });
+
+      if (response.ok) {
+        setFormMessage('Thank you. Your enquiry has been received. A member of Quantara Security will contact you shortly.')
+        setFormData({ 
+          name: '', companyName: '', phone: '', email: '', 
+          serviceRequired: '', location: '', message: '', preferredContact: 'Email' 
+        })
       } else {
-        setFormMessage(result.error || 'An error occurred. Please try again.')
+        setFormMessage('An error occurred. Please try again.')
       }
     } catch (error) {
       setFormMessage('An error occurred. Please try again.')
@@ -58,8 +74,8 @@ export default function ContactPage() {
                     <Phone className="w-6 h-6 gold-accent flex-shrink-0 mt-1" />
                     <div>
                       <h3 className="font-bold mb-1">Phone</h3>
-                      <p className="text-neutral-400">📞 Office: 020 3718 1599</p>
-                      <p className="text-neutral-400">📱 Mobile: 07762 308545</p>
+                      <p className="text-neutral-400">📞 Office: <a href="tel:02037181599" className="hover:text-[#d4af37] transition-colors">020 3718 1599</a></p>
+                      <p className="text-neutral-400">📱 Mobile: <a href="tel:07762308545" className="hover:text-[#d4af37] transition-colors">07762 308545</a></p>
                       <p className="text-neutral-400 text-sm">Available 24/7</p>
                     </div>
                   </div>
@@ -70,7 +86,7 @@ export default function ContactPage() {
                     <Mail className="w-6 h-6 gold-accent flex-shrink-0 mt-1" />
                     <div>
                       <h3 className="font-bold mb-1">Email</h3>
-                      <p className="text-neutral-400">📧 info@quantarasecurity.co.uk</p>
+                      <p className="text-neutral-400">📧 <a href="mailto:info@quantarasecurity.co.uk" className="hover:text-[#d4af37] transition-colors">info@quantarasecurity.co.uk</a></p>
                       <p className="text-neutral-400 text-sm">Response within 24 hours</p>
                     </div>
                   </div>
@@ -111,21 +127,33 @@ export default function ContactPage() {
                 </div>
               )}
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Full Name</label>
-                  <input
-                    type="text"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    required
-                    className="w-full bg-neutral-900 border border-neutral-700 rounded px-4 py-3 text-white placeholder-neutral-500 focus:border-[#d4af37] focus:outline-none transition-colors"
-                    placeholder="Your name"
-                  />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Full Name *</label>
+                    <input
+                      type="text"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      required
+                      className="w-full bg-neutral-900 border border-neutral-700 rounded px-4 py-3 text-white placeholder-neutral-500 focus:border-[#d4af37] focus:outline-none transition-colors"
+                      placeholder="Your name"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Company Name (Optional)</label>
+                    <input
+                      type="text"
+                      value={formData.companyName}
+                      onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                      className="w-full bg-neutral-900 border border-neutral-700 rounded px-4 py-3 text-white placeholder-neutral-500 focus:border-[#d4af37] focus:outline-none transition-colors"
+                      placeholder="Your company"
+                    />
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Email</label>
+                    <label className="block text-sm font-medium mb-2">Email *</label>
                     <input
                       type="email"
                       value={formData.email}
@@ -136,27 +164,59 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Phone</label>
+                    <label className="block text-sm font-medium mb-2">Phone *</label>
                     <input
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      required
                       className="w-full bg-neutral-900 border border-neutral-700 rounded px-4 py-3 text-white placeholder-neutral-500 focus:border-[#d4af37] focus:outline-none transition-colors"
                       placeholder="+44..."
                     />
                   </div>
                 </div>
 
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Service Required *</label>
+                    <select
+                      value={formData.serviceRequired}
+                      onChange={(e) => setFormData({ ...formData, serviceRequired: e.target.value })}
+                      required
+                      className="w-full bg-neutral-900 border border-neutral-700 rounded px-4 py-3 text-white focus:border-[#d4af37] focus:outline-none transition-colors"
+                    >
+                      <option value="">Select a service...</option>
+                      <option value="Manned Guarding">Manned Guarding</option>
+                      <option value="Mobile Patrols">Mobile Patrols</option>
+                      <option value="CCTV Monitoring">CCTV Monitoring</option>
+                      <option value="Key Holding">Key Holding</option>
+                      <option value="Event Security">Event Security</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Location *</label>
+                    <input
+                      type="text"
+                      value={formData.location}
+                      onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                      required
+                      className="w-full bg-neutral-900 border border-neutral-700 rounded px-4 py-3 text-white placeholder-neutral-500 focus:border-[#d4af37] focus:outline-none transition-colors"
+                      placeholder="e.g. London"
+                    />
+                  </div>
+                </div>
+
                 <div>
-                  <label className="block text-sm font-medium mb-2">Subject</label>
-                  <input
-                    type="text"
-                    value={formData.subject}
-                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    required
-                    className="w-full bg-neutral-900 border border-neutral-700 rounded px-4 py-3 text-white placeholder-neutral-500 focus:border-[#d4af37] focus:outline-none transition-colors"
-                    placeholder="How can we help?"
-                  />
+                  <label className="block text-sm font-medium mb-2">Preferred Contact Method</label>
+                  <div className="flex gap-4">
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <input type="radio" name="preferredContact" value="Email" checked={formData.preferredContact === 'Email'} onChange={(e) => setFormData({ ...formData, preferredContact: e.target.value })} className="accent-[#d4af37]" /> Email
+                    </label>
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <input type="radio" name="preferredContact" value="Phone" checked={formData.preferredContact === 'Phone'} onChange={(e) => setFormData({ ...formData, preferredContact: e.target.value })} className="accent-[#d4af37]" /> Phone
+                    </label>
+                  </div>
                 </div>
 
                 <div>
