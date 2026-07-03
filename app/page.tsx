@@ -29,8 +29,8 @@ export default function Page() {
                   Beyond Traditional Security.
                 </p>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                  AI-Supported Security Solutions for a{" "}
-                  <span className="gold-accent">Safer Tomorrow</span>
+                  Your Trusted Security Partner Across the{" "}
+                  <span className="gold-accent">United Kingdom</span>
                 </h1>
               </div>
               <p className="text-lg text-neutral-300 leading-relaxed">
@@ -46,15 +46,9 @@ export default function Page() {
                 </Link>
                 <Link href="/about" className="btn-secondary block text-center">Learn More</Link>
               </div>
-              <div className="flex gap-6 pt-4 text-sm text-neutral-400">
-                <div className="flex items-center gap-2">
-                  <Shield className="w-5 h-5 text-[#d4af37]" />
-                  24/7 Monitoring
-                </div>
-                <div className="flex items-center gap-2">
-                  <Users className="w-5 h-5 text-[#d4af37]" />
-                  Trained Staff
-                </div>
+              <div className="flex gap-6 pt-4 items-center">
+                <Image src="/sia-approved.jpeg" alt="SIA Approved" width={100} height={100} className="rounded" />
+                <Image src="/why-trust-us.jpeg" alt="Why Trust Us" width={100} height={100} className="rounded" />
               </div>
             </div>
             <div className="relative h-96 md:h-full">
@@ -151,7 +145,7 @@ export default function Page() {
                     src={item.img}
                     alt={item.title}
                     fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-contain group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300" />
                 </div>
@@ -219,7 +213,7 @@ export default function Page() {
                   src={item.src}
                   alt={item.alt}
                   fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="object-contain group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-300" />
                 <p className="absolute bottom-4 left-4 font-semibold text-sm">
@@ -285,8 +279,7 @@ export default function Page() {
             Ready to Protect Your Property?
           </h2>
           <p className="text-lg text-neutral-300 mb-8 max-w-2xl mx-auto">
-            Get a free quote today and discover why hundreds of businesses trust
-            Quantara Security.
+            Get a free quote today and discover our trusted professional security services for businesses across London and surrounding areas.
           </p>
           <button className="btn-primary text-lg">
             Request a Free Consultation
@@ -324,6 +317,17 @@ export default function Page() {
                 <p className="text-neutral-400">{item.content}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Google Reviews Section (Placeholder) */}
+      <section className="section-spacing bg-neutral-950 border-t border-neutral-800">
+        <div className="container-max text-center">
+          <h2 className="text-3xl font-bold mb-8">What Our Clients Say</h2>
+          <div className="bg-neutral-900 border border-neutral-800 rounded-lg p-12 text-neutral-400 flex flex-col items-center justify-center min-h-[300px]">
+            <span className="text-5xl mb-4">⭐⭐⭐⭐⭐</span>
+            <p className="text-lg">Google Reviews will be displayed here.</p>
           </div>
         </div>
       </section>
