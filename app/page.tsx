@@ -321,7 +321,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Google Reviews Section (Placeholder) */}
+      {/* Google Reviews Section (Placeholder)
       <section className="section-spacing bg-neutral-950 border-t border-neutral-800">
         <div className="container-max text-center">
           <h2 className="text-3xl font-bold mb-8">What Our Clients Say</h2>
@@ -331,6 +331,7 @@ export default function Page() {
           </div>
         </div>
       </section>
+      */}
 </div>
   );
 }
