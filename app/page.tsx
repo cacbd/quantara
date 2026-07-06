@@ -270,7 +270,7 @@ export default function Page() {
               {
                 icon: Phone,
                 title: "Phone",
-                content: "020 3718 1599 / 07762 308545",
+                content: "07762 308545",
               },
               {
                 icon: Mail,
