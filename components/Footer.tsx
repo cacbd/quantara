@@ -219,9 +219,6 @@ export default function Footer() {
           {/* Copyright */}
           <div className="text-center text-sm text-neutral-500">
             <p>&copy; 2026 Quantara Security Group Ltd. All rights reserved.</p>
-            <p className="mt-2">
-              128 City Road, London, EC1V 2NX | Registered in England and Wales
-            </p>
           </div>
         </div>
 
