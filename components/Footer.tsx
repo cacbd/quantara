@@ -185,7 +185,7 @@ export default function Footer() {
                   className="text-[#d4af37] flex-shrink-0 mt-1"
                 />
                 <div>
-                  <a href="tel:02037181599" className="text-neutral-400 hover:text-[#d4af37] transition-colors block">020 3718 1599</a>
+                  {/*<a href="tel:02037181599" className="text-neutral-400 hover:text-[#d4af37] transition-colors block">020 3718 1599</a>*/}
                   <a href="tel:07762308545" className="text-neutral-400 hover:text-[#d4af37] transition-colors block">07762 308545</a>
                 </div>
               </li>
@@ -199,7 +199,7 @@ export default function Footer() {
                   className="text-[#d4af37] flex-shrink-0 mt-1"
                 />
                 <p className="text-neutral-400">
-                  128 City Road, London, EC1V 2NX, United Kingdom
+                  128 City Road, London, EC1V 2NX
                 </p>
               </li>
             </ul>
