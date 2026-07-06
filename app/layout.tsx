@@ -98,7 +98,7 @@ export default function RootLayout({
       <body className="font-sans antialiased bg-black text-white flex flex-col min-h-screen">
         {/* Emergency Banner */}
         <div className="bg-red-700 text-white text-center py-2 px-4 text-sm font-medium sticky top-0 z-[60]">
-          Need urgent security cover? Call Quantara Security 24/7 on <a href="tel:02037181599" className="underline hover:text-red-200">020 3718 1599</a>
+          Need urgent security cover? Call Quantara Security 24/7 on <a href="tel:07762308545" className="underline hover:text-red-200">020 3718 1599</a>
         </div>
         <Navigation />
         <main className="flex-grow">
